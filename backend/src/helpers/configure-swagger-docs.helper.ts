@@ -22,12 +22,16 @@ export function configureSwaggerDocs(
     );
 
     const config = new DocumentBuilder()
-      .setTitle('API')
-      .setDescription('The API description')
+      .setTitle('EasyTrack')
+      .setDescription('Central de rastreio de encomendas')
       .setVersion('1.0')
       .addBearerAuth()
-      .addTag('auth')
-      .addTag('users')
+      .addSecurity('ApiKeyAuth', {
+        type: 'apiKey',
+        in: 'header',
+        name: 'Authorization',
+      })
+      .addSecurityRequirements('ApiKeyAuth')
       .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('/docs', app, document);

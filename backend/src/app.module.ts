@@ -4,13 +4,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoginModule } from './login/login.module';
-import { RegisterModule } from './register/register.module';
-import { UsersModule } from './users/users.module';
-import { ForgotPasswordModule } from './forgot-password/forgot-password.module';
-import { ChangePasswordModule } from './change-password/change-password.module';
+import { RegistroUsuarioModule } from './registro-usuario/registro-usuario.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
+import { MudaSenhaModule } from './muda-senha/muda-senha.module';
 import { MailerModule } from './mailer/mailer.module';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { UtilsModule } from './utils/utils.module';
+import { PacotesModule } from './pacotes/pacotes.module';
+import { EtiquetasModule } from './etiquetas/etiquetas.module';
+import { ConfiguracoesModule } from './configuracoes/configuracoes.module';
+import { OperadoresLogisticosModule } from './operadores-logisticos/operadores-logisticos.module';
+import { RegistroMovimentacoesModule } from './registro-movimentacoes/registro-movimentacoes.module';
 import * as Yup from 'yup';
 
 @Module({
@@ -38,7 +43,7 @@ import * as Yup from 'yup';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        type: 'mysql',
+        type: 'postgres',
         host: config.get<string>('TYPEORM_HOST'),
         port: config.get<number>('TYPEORM_PORT'),
         username: config.get<string>('TYPEORM_USERNAME'),
@@ -55,14 +60,19 @@ import * as Yup from 'yup';
       }),
     }),
     LoginModule,
-    RegisterModule,
-    UsersModule,
-    ForgotPasswordModule,
-    ChangePasswordModule,
+    RegistroUsuarioModule,
+    UsuariosModule,
+    EsqueceuSenhaModule,
+    MudaSenhaModule,
     MailerModule,
     UtilsModule,
+    PacotesModule,
+    EtiquetasModule,
+    ConfiguracoesModule,
+    OperadoresLogisticosModule,
+    RegistroMovimentacoesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

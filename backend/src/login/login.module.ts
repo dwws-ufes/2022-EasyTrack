@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { LoginController } from './login.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Users } from '../users/entities/users.entity';
+import { Usuarios } from '../usuarios/entities/usuarios.entity';
 import { JwtModule } from '@nestjs/jwt';
-import { UsersService } from '../users/users.service';
+import { UsuariosService } from '../usuarios/usuarios.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -12,7 +12,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    TypeOrmModule.forFeature([Users]),
+    TypeOrmModule.forFeature([Usuarios]),
     PassportModule.register({ defaultStrategy: 'jwt', session: false }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
@@ -25,7 +25,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
   ],
-  providers: [LoginService, UsersService, JwtStrategy],
+  providers: [LoginService, UsuariosService, JwtStrategy],
   controllers: [LoginController],
 })
 export class LoginModule {}

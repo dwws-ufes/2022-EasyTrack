@@ -84,7 +84,7 @@ or
 
 ## Docker
 
-There is a `docker-compose.yml` file for starting MySQL with Docker.
+There is a `docker-compose.yml` file for starting Postgres with Docker.
 
 `$ docker-compose up`
 
