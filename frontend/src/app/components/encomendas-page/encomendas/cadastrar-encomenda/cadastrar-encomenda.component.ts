@@ -13,7 +13,7 @@ import { OperadorLogisticoService } from 'src/app/service/operador-logistico.ser
 })
 export class CadastrarEncomendaComponent implements OnInit {
 
-  trasportadoras$?: Observable<OperadorLogistico[]>
+  trasportadoras$?: Observable<any[]>
   formAdicionarEncomenda: FormGroup
   pacote?: Pacote
 
@@ -46,8 +46,9 @@ export class CadastrarEncomendaComponent implements OnInit {
     }
 
     if(c.idOperadorLogistico && c.codigoOperadorLogistico){
-      this.pacote = new Pacote()
-      this.pacote.operadorLogistico = new OperadorLogistico()
+      this.pacote = new Pacote();
+      this.pacote.operadorLogistico = new OperadorLogistico();
+      this.pacote.operadorLogistico.nome = '';
       this.pacote.codigoOperadorLogistica = this.formAdicionarEncomenda.controls['codigoOperadorLogistico'].value
       this.pacote.operadorLogistico.id = this.formAdicionarEncomenda.controls['idOperadorLogistico'].value
 

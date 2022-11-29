@@ -12,7 +12,10 @@ export class CriarEtiquetaComponent implements OnInit {
 
   formCriarEtiqueta: FormGroup
 
-  constructor(private fb: FormBuilder, private dialog: MatDialogRef <ConfiguracaoComponent>) { 
+  constructor(
+    private fb: FormBuilder,
+    private dialog: MatDialogRef <ConfiguracaoComponent>
+  ) { 
     this.formCriarEtiqueta = this.createForm(this.fb)
   }
 

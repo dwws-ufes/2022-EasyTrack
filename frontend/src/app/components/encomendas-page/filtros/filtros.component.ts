@@ -22,7 +22,7 @@ export class FiltrosComponent implements OnInit {
 
   formFiltro: FormGroup
   etiquetas$?: Observable<Etiqueta[]>
-  operadoresLogisticos$?: Observable<OperadorLogistico[]>
+  operadoresLogisticos$?: Observable<any[]>
 
   auxDate = new FormGroup({
     inicio: new FormControl(),

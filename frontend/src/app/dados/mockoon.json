@@ -89,14 +89,301 @@
       "responseMode": null
     },
     {
+      "uuid": "03fadc9e-f050-4475-9053-9de7d09a30a1",
+      "documentation": "obter pacote por id",
+      "method": "get",
+      "endpoint": "pacote/:id",
+      "responses": [
+        {
+          "uuid": "091c6044-df4d-4160-88cb-33e07c6c2ecc",
+          "body": "{\n\t\t\"id\": 2416,\n\t\t\"codigoOperadorLogistica\": \"90B615A6-AC59-135A-1E73-D8003242D1A1\",\n\t\t\"dataPostagem\": \"Apr 6, 2022\",\n\t\t\"dataEntrega\": \"Oct 17, 2021\",\n\t\t\"localOrigem\": \"Newton\",\n\t\t\"localDestino\": \"Saint-Sébastien-sur-Loire\",\n\t\t\"status\": \"Entregue\",\n\t\t\"etiquetas\": []\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "2935417f-219d-4179-888c-93aa971cbdab",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "f00bb66a-2d08-4056-85bc-ad0dbdad0bdb",
+      "documentation": "obtendo registro de movimentações",
+      "method": "get",
+      "endpoint": "registroMovimentacao/porIdPacote",
+      "responses": [
+        {
+          "uuid": "59e99d05-47d9-40b4-8fe9-d9f394e724eb",
+          "body": "[{\"id\":1,\"dataMovimentacao\":\"8/10/2022\",\"localOrigem\":\"Jardim\",\"localDestino\":\"Almafuerte\",\"status\":\"Brazil\"},\n{\"id\":2,\"dataMovimentacao\":\"6/12/2022\",\"localOrigem\":\"Haolaishan\",\"localDestino\":\"Żabnica\",\"status\":\"China\"},\n{\"id\":3,\"dataMovimentacao\":\"11/10/2022\",\"localOrigem\":\"Independencia\",\"localDestino\":\"Tehetu\",\"status\":\"Mexico\"},\n{\"id\":4,\"dataMovimentacao\":\"12/4/2021\",\"localOrigem\":\"Khotiv\",\"localDestino\":\"Talodi\",\"status\":\"Ukraine\"},\n{\"id\":5,\"dataMovimentacao\":\"3/23/2022\",\"localOrigem\":\"Port Erin\",\"localDestino\":\"Nanggorak\",\"status\":\"Isle of Man\"},\n{\"id\":6,\"dataMovimentacao\":\"3/3/2022\",\"localOrigem\":\"Chaiyo\",\"localDestino\":\"Songhu\",\"status\":\"Thailand\"},\n{\"id\":7,\"dataMovimentacao\":\"5/5/2022\",\"localOrigem\":\"Gaotian\",\"localDestino\":\"Wang Sam Mo\",\"status\":\"China\"},\n{\"id\":8,\"dataMovimentacao\":\"4/11/2022\",\"localOrigem\":\"Tabango\",\"localDestino\":\"Nancun\",\"status\":\"Philippines\"},\n{\"id\":9,\"dataMovimentacao\":\"2/7/2022\",\"localOrigem\":\"Chimboy Shahri\",\"localDestino\":\"Ananindeua\",\"status\":\"Uzbekistan\"},\n{\"id\":10,\"dataMovimentacao\":\"12/30/2021\",\"localOrigem\":\"Kufa\",\"localDestino\":\"Menzel Abderhaman\",\"status\":\"Iraq\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
       "uuid": "49b41ad8-4d42-42fb-95de-7962747157a1",
       "documentation": "criar pacote",
       "method": "post",
-      "endpoint": "pacote/salvar",
+      "endpoint": "pacote",
       "responses": [
         {
           "uuid": "0c9fcdd7-d961-41e7-987a-1060fa4df75d",
           "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "6cfd1a69-5138-4b52-9b48-b027e4193e75",
+      "documentation": "obter usuario",
+      "method": "get",
+      "endpoint": "usuario/:id",
+      "responses": [
+        {
+          "uuid": "b5bd71cd-d814-4d2c-812d-e378d0a41650",
+          "body": "{\n  \"id\": \"us01\",\n  \"usuario\": \"ricargo@email.com\",\n  \"nome\": \"Ricado\",\n  \"sobrenome\": \"Aurélio\",\n  \"cpf\": \"123.456.789-10\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "5274051d-f9b1-4256-8927-a087643c63df",
+      "documentation": "login de usuario",
+      "method": "get",
+      "endpoint": "usuario/:nome/:senha",
+      "responses": [
+        {
+          "uuid": "482768ee-a5a1-4f37-8fb6-b76298facdd9",
+          "body": "{\n  \"id\": \"us01\",\n  \"usuario\": \"ricargo@email.com\",\n  \"nome\": \"Ricado\",\n  \"sobrenome\": \"Aurélio\",\n  \"cpf\": \"123.456.789-10\",\n  \"configuracao\": {\n    \"atualizacaoAutomatica\": false,\n    \"tipoOrdenacaoPadrao\": 1,\n    \"intervaloAtualizacao\": 1,\n    \"horarioComercialAtualizacao\": false\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1eca9392-38c3-4533-833f-227da3beab9f",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "etiqueta/criarEAssociarPacote",
+      "responses": [
+        {
+          "uuid": "23882f81-764b-452a-a7e4-3d0905457279",
+          "body": "{\"Funcionou\": true}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "a3598198-3fa6-436c-b598-e4464ee547bb",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "pacote/adicionarEtiqueta",
+      "responses": [
+        {
+          "uuid": "d8e1f44f-762d-4d5b-81b1-b3bed861b46e",
+          "body": "{\"Adicionado\": true}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9ccaf895-a5fc-4446-9658-7983264b0196",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "etiqueta/getPorIdPacotes",
+      "responses": [
+        {
+          "uuid": "61f473c8-d125-49fc-ab66-52aa0130590a",
+          "body": "[\n  {\"id\": \"tag001\", \"nome\": \"Presente\", \"cor\": \"#00bfff\", \"codigo\": \"\"},\n  {\"id\": \"tag002\", \"nome\": \"Trabalho\", \"cor\": \"#0000ff\", \"codigo\": \"\"},\n  {\"id\": \"tag003\", \"nome\": \"Enfeites de Natal\", \"cor\": \"#8000ff\", \"codigo\": \"\"}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "4a22e003-75de-49e0-bcbd-b6adcedafca2",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "auth/:user/:password",
+      "responses": [
+        {
+          "uuid": "6427ce89-d49e-4687-a16a-564b84e2e977",
+          "body": "{\n  \"token\": \"eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQSflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n  \"usuario\": {\n    \"id\": \"us01\",\n    \"usuario\": \"ricargo@email.com\",\n    \"nome\": \"Ricado\",\n    \"sobrenome\": \"Aurélio\",\n    \"cpf\": \"123.456.789-10\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "7b9bbb28-b553-451f-87ee-1edc22c8538a",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "auth/refreshToken",
+      "responses": [
+        {
+          "uuid": "8fe74e67-c232-4f11-85c4-167a699c4835",
+          "body": "{\n  \"token\": \"eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQSflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3c93b58e-182e-4a61-a9c8-969a76bb98c0",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "configuracao/getPorIdUsuario/:id",
+      "responses": [
+        {
+          "uuid": "06fb5409-789b-4e6f-baa8-03740902677d",
+          "body": "{\n    \"atualizacaoAutomatica\": true,\n    \"tipoOrdenacaoPadrao\": 1,\n    \"intervaloAtualizacao\": 1,\n    \"horarioComercialAtualizacao\": false\n  }",
           "latency": 0,
           "statusCode": 200,
           "label": "",

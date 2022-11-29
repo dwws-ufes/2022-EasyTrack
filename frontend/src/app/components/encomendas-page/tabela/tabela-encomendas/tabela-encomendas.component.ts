@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Etiqueta } from 'src/app/model/etiqueta.model';
 import { DescreveEtiquetasComponent } from '../descreve-etiquetas/descreve-etiquetas.component';
-import { PacoteService } from 'src/app/service/pacote.service';
 
 @Component({
   selector: 'app-tabela-encomendas',
@@ -11,13 +10,16 @@ import { PacoteService } from 'src/app/service/pacote.service';
 })
 export class TabelaEncomendasComponent implements OnInit {
 
-  @Input() listaPacotes$?: any
+  @Input() listaPacotes$: any
   displayed: String[] = ["select", "codigoOperadorLogistica", "status", "dataPostagem", "dataEntrega", "origem", "destino", "etiqueta"]
 
-  constructor(private dialog: MatDialog, private pacoteService: PacoteService) {
+  constructor(
+    private dialog: MatDialog
+  ) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   dialogDescreveEtiquetas(etiquetas: Etiqueta[]){
     if(etiquetas.length > 0 ) this.dialog.open(DescreveEtiquetasComponent, {data: etiquetas})

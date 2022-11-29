@@ -20,7 +20,26 @@ table {
 }
 
 .etiquetas-content {
+    cursor: pointer;
     display: flex;
     align-items: center;
     /*justify-content: center;*/
+}
+
+.status-content {
+    display: flex;
+    align-items: center;
+}
+
+.status-content>mat-icon {
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.status-content>mat-icon:hover{
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #eaeeee83;
+    transition: 100ms;
 }
