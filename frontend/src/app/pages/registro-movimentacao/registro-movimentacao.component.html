@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="content-page card-white">
+        <h1 class="title">Registro de Movimentação</h1>
+
+        <div class="info-encomenda" *ngIf="!carregandoLista && !carregandoPacote">
+            <h3><b>Código da Encomenda:</b> {{pacote?.codigoOperadorLogistica}}</h3>
+            <h3><b>Código da Status:</b> {{pacote?.status}}</h3>
+            <h3><b>Local de Origem:</b> {{pacote?.localOrigem}}</h3>
+            <h3><b>Local de Destino:</b> {{pacote?.localDestino}}</h3>
+        </div>
+
+        <div *ngIf="carregandoLista || carregandoPacote" class="spiner content-alight-center">
+            <mat-spinner></mat-spinner>
+        </div>
+        
+        <mat-list role="list" *ngIf="!carregandoLista && !carregandoPacote">
+            <mat-list-item *ngFor="let rm of registroMovimentacoes" class="movimentacao">
+                <div>
+                    <h3><b>{{rm.dataMovimentacao | date:'dd/MM/yyyy'}}</b></h3>
+                    <h3>Origem: <b>{{rm.localOrigem}}</b> ----------> Destino: <b>{{rm.localDestino}}</b></h3>
+                </div>
+            </mat-list-item>
+        </mat-list>
+        
+
+    </div>
+</div>

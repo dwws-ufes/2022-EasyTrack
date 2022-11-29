@@ -1,0 +1,5 @@
+.fundo {
+    height: 100%;
+    padding: 30px;
+    background-color: var(--color-page);
+}
