@@ -7,7 +7,7 @@
         "localOrigem": "Nova Iguacu / RJ",
         "localDestino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
-        "etiquetas": [{"nome": "Natal", "cor": "red"}, {"nome": "Eletronico", "cor": "blue"}],
+        "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue", "id":2}],
         "operadorLogistico":{"nome": "Correios", "id":1},
         "registroMovimentacoes": [
         {
@@ -95,7 +95,7 @@
         "localOrigem": "Nova Iguacu / RJ",
         "localDestino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
-        "etiquetas": [{"nome": "Natal", "cor": "red"}, {"nome": "Eletronico", "cor": "blue"}],
+        "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue","id":2}],
         "operadorLogistico":{"nome": "Correios", "id":1},
         "registroMovimentacoes": [
         {
@@ -182,7 +182,7 @@
                 "localOrigem": "China",
                 "localDestino": null,
                 "status": "Objeto recebido pelos Correios do Brasil",
-                "etiquetas": [{"nome": "Natal", "cor": "red"}, {"nome": "Roupa", "cor": "purple"}],
+                "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Roupa", "cor": "purple", "id":3}],
                 "operadorLogistico":{"nome": "Correios", "id":1}, 
                 "registroMovimentacoes": [
                     {
@@ -220,9 +220,9 @@
         }},
         {
             "id": 2,
-            "usuario": "Richard",
-            "nome": "Richard Carlos",
-            "sobrenome": "Monalindo",
+            "usuario": "thiago",
+            "nome": "Thiago",
+            "sobrenome": "Redes",
             "cpf": "115.086.890-24",
             "senha":"123456",
             "configuracao":{
@@ -244,5 +244,6 @@
                 "intervaloAtualizacao": 2,
                 "horarioComercialAtualizacao": false
             }}    
-    ]
+    ],
+    "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue", "id":2},{"nome": "Roupa", "cor": "purple", "id":3}, {"nome": "Comida", "cor": "green", "id":4}]
 }
