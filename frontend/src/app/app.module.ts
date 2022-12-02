@@ -27,7 +27,11 @@ import { AdicionarEtiquetaComponent } from './components/encomendas-page/etiquet
 import { RegistroMovimentacaoComponent } from './pages/registro-movimentacao/registro-movimentacao.component';
 import { EditarEtiquetaComponent } from './components/encomendas-page/etiquetas/editar-etiqueta/editar-etiqueta.component';
 import { SelectEtiquetaComponent } from './components/form/select-etiqueta/select-etiqueta.component';
-import { InfoSnackbarComponent } from './components/alertas/info-snackbar/info-snackbar.component'
+import { InfoSnackbarComponent } from './components/alertas/info-snackbar/info-snackbar.component';
+import { MovimentacaoPacoteComponent } from './components/movimentacao-pacote/movimentacao-pacote.component';
+import { InputTextComponent } from './components/form/input-text/input-text.component';
+import { SelectOperadorLogisticoComponent } from './components/form/select-operador-logistico/select-operador-logistico.component';
+import { InputDateIntervalComponent } from './components/form/input-date-interval/input-date-interval.component'
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { InfoSnackbarComponent } from './components/alertas/info-snackbar/info-s
     RegistroMovimentacaoComponent,
     EditarEtiquetaComponent,
     SelectEtiquetaComponent,
-    InfoSnackbarComponent
+    InfoSnackbarComponent,
+    MovimentacaoPacoteComponent,
+    InputTextComponent,
+    SelectOperadorLogisticoComponent,
+    InputDateIntervalComponent
     ],
   imports: [
     BrowserModule,

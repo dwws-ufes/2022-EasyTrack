@@ -5,7 +5,7 @@
         <div *ngIf="carregandoLista" class="spiner content-alight-center">
             <mat-spinner></mat-spinner>
         </div>
-
+        
         <mat-list *ngIf="!carregandoLista">
             <div *ngFor="let t of trasportadoras">
                 <div class="item">
@@ -13,7 +13,6 @@
                     <h4><b>Razão Social:</b> {{t.razaoSocial}}</h4>
                     <h4><b>CNPJ:</b> {{t.cnpj}}</h4>
                 </div>
-                <mat-list-item>TNT</mat-list-item>
                 <mat-divider></mat-divider>
             </div>
         </mat-list>

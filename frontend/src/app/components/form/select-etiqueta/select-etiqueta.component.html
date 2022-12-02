@@ -1,6 +1,6 @@
-<ng-container [formGroup]="form"]>
-    <mat-form-field appearance="outline" class="form-select-etiqueta">
-        <mat-label>Etiquetas</mat-label>
+<ng-container [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>{{label}}</mat-label>
         <mat-select formControlName="{{custonFormControlName}}" [(value)]="etiquetaSelecionada">
             <mat-select-trigger>
                 <div class="cor-content">

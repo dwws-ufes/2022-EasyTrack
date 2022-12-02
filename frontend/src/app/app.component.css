@@ -17,10 +17,9 @@ a:hover {
     background-color: #36438d;
 }
 
-mat-icon {
+.icon-home {
     margin-right: 6px;
 }
-
 .flex-spacer {
     flex-grow: 1;
 }
@@ -36,5 +35,13 @@ mat-icon {
 }
 
 .actions button {
+    margin: 0px 5px;
+}
+
+.button-usuario {
+    min-width: 40px;
+}
+
+.button-usuario mat-icon{
     margin: 0px 5px;
 }
