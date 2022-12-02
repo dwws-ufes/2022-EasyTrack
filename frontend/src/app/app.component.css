@@ -39,7 +39,7 @@ a:hover {
 }
 
 .button-usuario {
-    min-width: 40px;
+    min-width: 100px;
 }
 
 .button-usuario mat-icon{

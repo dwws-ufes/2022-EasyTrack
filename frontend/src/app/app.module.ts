@@ -31,7 +31,8 @@ import { InfoSnackbarComponent } from './components/alertas/info-snackbar/info-s
 import { MovimentacaoPacoteComponent } from './components/movimentacao-pacote/movimentacao-pacote.component';
 import { InputTextComponent } from './components/form/input-text/input-text.component';
 import { SelectOperadorLogisticoComponent } from './components/form/select-operador-logistico/select-operador-logistico.component';
-import { InputDateIntervalComponent } from './components/form/input-date-interval/input-date-interval.component'
+import { InputDateIntervalComponent } from './components/form/input-date-interval/input-date-interval.component';
+import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component'
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { InputDateIntervalComponent } from './components/form/input-date-interva
     MovimentacaoPacoteComponent,
     InputTextComponent,
     SelectOperadorLogisticoComponent,
-    InputDateIntervalComponent
+    InputDateIntervalComponent,
+    PaginaUsuarioComponent
     ],
   imports: [
     BrowserModule,
