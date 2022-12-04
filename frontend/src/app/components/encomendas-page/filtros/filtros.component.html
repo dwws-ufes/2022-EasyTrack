@@ -3,87 +3,53 @@
 <div mat-dialog-content class="content-page">
     <form [formGroup]="formFiltro" class="form-center" [ngSwitch]="tipoFiltro">
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaCodigo()">
-            <mat-label>Código da encomenda</mat-label>
-            <input matInput formControlName="buscaCodigo" type="text" placeholder="AA123456785BR">
-        </mat-form-field>
+        <form-input-text *ngSwitchCase="tipoBuscaCodigo()" 
+            [label]="'Código da encomenda'"
+            [custonFormControlName]="'buscaCodigo'"
+            [placeholder]="'AA123456785BR'"
+        ></form-input-text>
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaOrigem()">
-            <mat-label>Local de origem</mat-label>
-            <input matInput formControlName="buscaOrigem" type="text" placeholder="AA123456785BR">
-        </mat-form-field>
+        <form-input-text *ngSwitchCase="tipoBuscaOrigem()" 
+            [label]="'Local de origem'"
+            [custonFormControlName]="'buscaOrigem'"
+            [placeholder]="'Rio de Janeiro-RJ'"
+        ></form-input-text>
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaDestino()">
-            <mat-label>Local de destino</mat-label>
-            <input matInput matInput formControlName="buscaDestino" type="text" placeholder="AA123456785BR">
-        </mat-form-field>
+        <form-input-text *ngSwitchCase="tipoBuscaDestino()" 
+            [label]="'Local de destino'"
+            [custonFormControlName]="'buscaDestino'"
+            [placeholder]="'São Paulo-SP'"
+        ></form-input-text>
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaEtiqueta()">
-            <mat-label>Etiquetas</mat-label>
-            <mat-select formControlName="buscaEtiqueta" [(value)]="etiquetaSelecionada">
-                <mat-select-trigger>
-                    <div class="cor-content">
-                        <mat-icon [ngStyle]="{'color': etiquetaSelecionada?.cor}">local_offer</mat-icon>
-                        <h4>{{etiquetaSelecionada?.nome}}</h4>
-                    </div>
-                  </mat-select-trigger>
-                <mat-option [value]="">Nenhuma</mat-option>
-                <mat-option *ngFor="let e of etiquetas$ | async" [value]="e">
-                    <div class="cor-content">
-                        <mat-icon [ngStyle]="{'color': e.cor}">local_offer</mat-icon>
-                        <h4>{{e.nome}}</h4>
-                    </div>
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <form-select-etiqueta *ngSwitchCase="tipoBuscaEtiqueta()"
+            [label]="'Etiqueta'"
+            [custonFormControlName]="'buscaEtiqueta'"
+            [etiquetas$]="etiquetas$">
+        </form-select-etiqueta>
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoOperadorLogistico()">
-            <mat-label>Transportadora</mat-label>
-            <mat-select formControlName="buscaOperadorLogistico">
-                <mat-option [value]="">Nenhuma</mat-option>
-                <mat-option *ngFor="let e of operadoresLogisticos$ | async" [value]="e">
-                    {{e.nomeFantasia}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <form-select-operador-logistico *ngSwitchCase="tipoOperadorLogistico()"
+            [label]="'Transportadora'"
+            [custonFormControlName]="'buscaOperadorLogistico'"
+            [operadoresLogisticos$]="operadoresLogisticos$"
+        ></form-select-operador-logistico>
 
-        <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaDataPostagem()">
+        <form-input-date-interval *ngSwitchCase="tipoBuscaDataPostagem()"
+            [label]="'Intervalo de Postagem'"
+            [placeholder]="'dia/mês/ano – dia/mês/ano'"
+            [placeholderInicio]="'Data de inicio'"
+            [placeholderFim]="'Data de fim'"
+            [custonFormControlNameInicio]="'buscaPeriodoInicio'"
+            [custonFormControlNameFim]="'buscaPeriodoFim'"
+        ></form-input-date-interval>
 
-            <mat-label>Intervalo de Postagem</mat-label>
-            <mat-date-range-input
-                [formGroup]="formFiltro"
-                [rangePicker]="campaignOnePicker"
-                [comparisonStart]="auxDate.value.inicio"
-                [comparisonEnd]="auxDate.value.fim">
-
-                <input matStartDate placeholder="Data de inicio" formControlName="buscaPeriodoInicio">
-                <input matEndDate placeholder="Data de fim" formControlName="buscaPeriodoFim">
-            </mat-date-range-input>
-            <mat-hint>dia/mês/ano – dia/mês/ano</mat-hint>
-
-            <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" *ngSwitchCase="tipoBuscaDataEntrega()">
-
-            <mat-label>Intervalo de Entrega</mat-label>
-            <mat-date-range-input
-                [formGroup]="formFiltro"
-                [rangePicker]="campaignOnePicker"
-                [comparisonStart]="auxDate.value.inicio"
-                [comparisonEnd]="auxDate.value.fim">
-
-                <input matStartDate placeholder="Data de inicio" formControlName="buscaPeriodoInicio">
-                <input matEndDate placeholder="Data de fim" formControlName="buscaPeriodoFim">
-            </mat-date-range-input>
-            <mat-hint>dia/mês/ano – dia/mês/ano</mat-hint>
-
-            <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
-            <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
-
-          </mat-form-field>
+        <form-input-date-interval *ngSwitchCase="tipoBuscaDataEntrega()"
+            [label]="'Intervalo de Entrega'"
+            [placeholder]="'dia/mês/ano – dia/mês/ano'"
+            [placeholderInicio]="'Data de inicio'"
+            [placeholderFim]="'Data de fim'"
+            [custonFormControlNameInicio]="'buscaPeriodoInicio'"
+            [custonFormControlNameFim]="'buscaPeriodoFim'"
+        ></form-input-date-interval>
     </form>
 
     <div>

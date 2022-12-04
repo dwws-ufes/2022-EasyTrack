@@ -17,17 +17,9 @@ import { ConfiguracaoComponent } from '../../configuracao/configuracao.component
 })
 export class FiltrosComponent implements OnInit {
 
-  @Output() filterTipes = new EventEmitter()
-  etiquetaSelecionada?: Etiqueta
-
   formFiltro: FormGroup
   etiquetas$?: Observable<Etiqueta[]>
   operadoresLogisticos$?: Observable<OperadorLogistico[]>
-
-  auxDate = new FormGroup({
-    inicio: new FormControl(),
-    fim: new FormControl(),
-  });
 
   constructor(
     private fb: FormBuilder, 

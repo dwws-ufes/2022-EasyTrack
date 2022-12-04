@@ -54,10 +54,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: 100px !important;
 }
 
+/* Botão na direita */
 .btn-dialog-position-ok {
     float: right;
 }
 
+/* Botão na esquerda */
 .btn-dialog-position-cancel {
     float: left;
 }

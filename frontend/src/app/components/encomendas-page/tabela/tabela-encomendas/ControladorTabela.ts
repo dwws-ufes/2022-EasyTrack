@@ -1,6 +1,6 @@
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { BehaviorSubject, catchError, finalize, map, Observable, of } from 'rxjs';
-import { CustonTable } from 'src/app/interfaces/CustonTable';
+import { CustonTable } from 'src/app/interfaces/custonTable';
 import { Pacote } from 'src/app/model/pacote.model';
 import { Filtro } from 'src/app/model/filtro.model';
 import { PacoteService } from 'src/app/service/pacote.service';
@@ -42,6 +42,20 @@ export class ControladorTabela extends DataSource<CustonTable> {
 
 		this.pacoteService.getTodos().pipe(map((pacotes: Pacote[]) => {
 			return pacotes.map((pacote: Pacote) => {
+				return {
+					pacote: pacote,
+					select: false
+				}
+			})  
+		}),
+			catchError(()=> of([])),
+			finalize(() => this.carregandoPacoteSubject.next(false))
+		).subscribe((ctList: CustonTable[]) => this.pacotesSubject.next(ctList))
+	}
+
+	buscaCustom(filtro: Filtro){
+		this.pacoteService.getPorFiltro(filtro).pipe(map((pacotes:any) => {
+			return pacotes.map((pacote: Pacote) => {
 				let p: CustonTable = {
 					pacote: pacote,
 					select: false
@@ -52,10 +66,6 @@ export class ControladorTabela extends DataSource<CustonTable> {
 			catchError(()=> of([])),
 			finalize(() => this.carregandoPacoteSubject.next(false))
 		).subscribe(p => this.pacotesSubject.next(p))
-	}
-
-	buscaCustom(filtros: Filtro[]){
-		this.pacoteService.getPorFiltro(filtros)
 	}
 
 	idPacotesSelecionados(): String[]{
@@ -96,6 +106,7 @@ export class ControladorTabela extends DataSource<CustonTable> {
 
 	checkboxTodosClicado(state: boolean){
 		this.todosSeleciondos = state
+		this.algunsSelecionados = false
 
 		this.pacotesSubject.asObservable().subscribe((custonTable: CustonTable[]) => {
 			custonTable.forEach(((ct: CustonTable) => {

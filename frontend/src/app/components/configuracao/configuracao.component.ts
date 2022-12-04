@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Configuracao } from 'src/app/model/configuracao.model';
 import { ConfiguracaoService } from 'src/app/service/configuracao.service';
+import { Security } from 'src/app/utils/security.util.ts';
 
 @Component({
   selector: 'app-configuracao',
@@ -26,6 +27,12 @@ export class ConfiguracaoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const configuracao = Security.getConfig()
+
+    this.formConfig.controls['atualizacaoAutomatica'].setValue(configuracao?.atualizacaoAutomatica)
+    this.formConfig.controls['horarioComercialAtualizacao'].setValue(configuracao?.horarioComercialAtualizacao)
+    this.formConfig.controls['intervaloAtualizacao'].setValue(configuracao?.intervaloAtualizacao)
+    this.formConfig.controls['tipoOrdenacaoPadrao'].setValue(configuracao?.tipoOrdenacaoPadrao)
   }
   
   createForm(fb: FormBuilder){
