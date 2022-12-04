@@ -4,6 +4,7 @@ import { RegistroMovimentacao } from 'src/app/model/registroMovimentacao.model';
 import { RegistroMovimentacaoService } from 'src/app/service/registroMovimentacao';
 import { ActivatedRoute } from '@angular/router';
 import { PacoteService } from 'src/app/service/pacote.service';
+import { BehaviorSubject, Observable, of, Subject, Subscriber } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { PacoteService } from 'src/app/service/pacote.service';
 })
 export class RegistroMovimentacaoComponent implements OnInit {
   @Input() pacote?: Pacote
-  registroMovimentacoes?: RegistroMovimentacao[]
+  registroMovimentacoes$: Subject<RegistroMovimentacao[]> = new BehaviorSubject<RegistroMovimentacao[]>([])
 
   carregandoLista: Boolean = false
   carregandoPacote: Boolean = false
@@ -29,8 +30,8 @@ export class RegistroMovimentacaoComponent implements OnInit {
     this.carregandoLista = true
     this.route.queryParams.subscribe(params => {
       let id = params['id']
-      this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm:any) =>{
-        this.registroMovimentacoes = rm
+      this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm: any) =>{
+        this.registroMovimentacoes$.next(rm)
         this.carregandoLista = false
       })
 
@@ -40,8 +41,8 @@ export class RegistroMovimentacaoComponent implements OnInit {
       })
     })
   }
-  else{
+  /*else{
     this.registroMovimentacoes = this.pacote.registroMovimentacoes;
-  }
+  }*/
   }
 }

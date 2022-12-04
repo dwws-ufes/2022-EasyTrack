@@ -33,7 +33,7 @@ export class Filtro {
     getString(): String{
         switch(this.tipoFiltro){
             case TipoFiltro.Codigo: return `Código: ${this.buscaCodigo}`
-            case TipoFiltro.OperadorLogistico: return `Operador Logístico: ${this.buscaOperadorLogistico?.nomeFantasia}`
+            case TipoFiltro.OperadorLogistico: return `Operador Logístico: ${this.buscaOperadorLogistico?.nome}`
             case TipoFiltro.Origem: return `Origem: ${this.buscaOrigem}`
             case TipoFiltro.Destino: return `Destino: ${this.buscaDestino}`
             case TipoFiltro.Etiqueta: return `Etiqueta: ${this.buscaEtiqueta?.nome}`

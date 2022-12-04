@@ -13,6 +13,7 @@ import { Security } from './utils/security.util.ts';
 export class AppComponent {
 
   usuarioLogado: Boolean = false
+  usuarioName?: String
 
   constructor(
     private dialog: MatDialog,
@@ -25,6 +26,7 @@ export class AppComponent {
 
   ngDoCheck(){
     this.usuarioLogado = (Security.getToken()) ? true : false
+    this.usuarioName = (this.usuarioLogado) ? Security.getUser()?.nome : ''
   }
   
   openConfig(){

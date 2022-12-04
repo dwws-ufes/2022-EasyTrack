@@ -2,14 +2,20 @@
 
 <div mat-dialog-content class="content-page">
     <form [formGroup]="formEditarEtiqueta" class="form-center">
-        <app-select-etiqueta *ngIf="selecionandoEtiqueta" [custonFormControlName]="'etiqueta'" [etiquetas$]="etiquetas$"></app-select-etiqueta>
+
+        <form-select-etiqueta *ngIf="selecionandoEtiqueta"
+            [label] = "'Etiqueta'"
+            [etiquetas$]="etiquetas$"
+            [custonFormControlName]="'etiqueta'"
+        ></form-select-etiqueta>
 
         <div *ngIf="!selecionandoEtiqueta" class="form-center form-editar-etiqueta">
-            <mat-form-field appearance="outline">
-                <mat-label>Nome</mat-label>
-                <input matInput formControlName="nome" type="text" placeholder="AA123456785BR">
-            </mat-form-field>
-    
+            <form-input-text
+                [label]="'Nome'"
+                [custonFormControlName]="'nome'"
+                [placeholder] = "'Natal'"
+            ></form-input-text>
+
             <mat-form-field appearance="outline">
                 <mat-label>Cor</mat-label>
                 <input matInput formControlName="cor" type="color" placeholder="AA123456785BR">

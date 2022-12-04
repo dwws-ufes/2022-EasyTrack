@@ -1,19 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Etiqueta } from 'src/app/model/etiqueta.model';
 
 @Component({
-  selector: 'form-select-etiqueta',
-  templateUrl: './select-etiqueta.component.html',
-  styleUrls: ['./select-etiqueta.component.css']
+  selector: 'form-input-text',
+  templateUrl: './input-text.component.html',
+  styleUrls: ['./input-text.component.css']
 })
-export class SelectEtiquetaComponent implements OnInit {
+export class InputTextComponent implements OnInit {
 
-  etiquetaSelecionada?: Etiqueta
   @Input() label?: String
-  @Input() etiquetas$?: Observable<Etiqueta[]>
   @Input() custonFormControlName?: String
+  @Input() placeholder?: String
   form!: FormGroup
 
   constructor(
