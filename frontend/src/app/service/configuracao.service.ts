@@ -13,7 +13,9 @@ export class ConfiguracaoService extends GenericService<Configuracao> {
     super(http, "configuracao")
   }
 
-  getPorIdUsuario(idUsuario: String): Observable<Configuracao>{
+  getPorIdUsuario(idUsuario: String){
+    return new Observable((observer) => {
+      observer.next(this.data.usuarios.find(usuario => usuario.id == idUsuario)?.configuracao)})
     return this.http.post<Configuracao>(`${this._url_}/${this.url}/getPorIdUsuario/${idUsuario}`, { headers: this.cabecalho() })
   }
 }

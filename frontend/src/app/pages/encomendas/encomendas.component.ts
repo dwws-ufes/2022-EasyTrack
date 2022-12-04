@@ -137,6 +137,7 @@ export class EncomendasComponent implements OnInit {
   }
 
   dialogFiltrarCodigo(){
+    return null;
     let ft = new Filtro(TipoFiltro.Codigo)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.Codigo})
 
@@ -146,12 +147,13 @@ export class EncomendasComponent implements OnInit {
       if(buscaCodigo){
         ft.buscaCodigo = buscaCodigo
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   dialogFiltrarOperadorLogistico(){
+    return
     let ft = new Filtro(TipoFiltro.OperadorLogistico)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.OperadorLogistico})
 
@@ -161,12 +163,13 @@ export class EncomendasComponent implements OnInit {
       if(buscaOperadorLogistico){
         ft.buscaOperadorLogistico = buscaOperadorLogistico
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   dialogFiltrarOrigem(){
+    return
     let ft = new Filtro(TipoFiltro.Origem)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.Origem})    
 
@@ -176,12 +179,13 @@ export class EncomendasComponent implements OnInit {
       if(buscaOrigem){
         ft.buscaOrigem = buscaOrigem
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   dialogFiltrarDestino(){
+    return
     let ft = new Filtro(TipoFiltro.Destino)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.Destino}) 
 
@@ -191,12 +195,13 @@ export class EncomendasComponent implements OnInit {
       if(buscaDestino){
         ft.buscaDestino = buscaDestino
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   dialogFiltrarEtiqueta(){
+    return
     let ft = new Filtro(TipoFiltro.Etiqueta)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.Etiqueta})
 
@@ -206,7 +211,7 @@ export class EncomendasComponent implements OnInit {
       if(buscaEtiqueta){
         ft.buscaEtiqueta = buscaEtiqueta
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
@@ -214,6 +219,7 @@ export class EncomendasComponent implements OnInit {
   dialogFiltrarStatus(){}
 
   dialogFiltrarPeriodoPostagem(){
+    return
     let ft = new Filtro(TipoFiltro.DataPostagem)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.DataPostagem})
 
@@ -223,12 +229,13 @@ export class EncomendasComponent implements OnInit {
         ft.buscaDataPostagemInicio = buscaPeriodoInicio
         ft.buscaDataPostagemFim = buscaPeriodoFim
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   dialogFiltrarPeriodoEntrega(){
+    return
     let ft = new Filtro(TipoFiltro.DataEntrega)
     const dialogRef = this.dialog.open(FiltrosComponent, {data: TipoFiltro.DataEntrega})
 
@@ -238,13 +245,14 @@ export class EncomendasComponent implements OnInit {
         ft.buscaDataEntregaInicio = buscaPeriodoInicio
         ft.buscaDataEntregaFim = buscaPeriodoFim
         this.filtros.push(ft)
-        this.listaPacotes$.buscaCustom(this.filtros)
+        this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
       }
     })
   }
 
   removerFiltro(filtro: Filtro, index: number){
+    return
     this.filtros.splice(index, 1);
-    this.listaPacotes$.buscaCustom(this.filtros)
+    this.listaPacotes$.buscaCustom(new Filtro(TipoFiltro.Codigo))
   }
 }

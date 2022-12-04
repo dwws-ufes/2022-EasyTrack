@@ -2,12 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Security } from '../utils/security.util.ts';
+import * as data from '../../assets/mock.json';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export abstract class GenericService<T> {
-
+  data = data;
   _url_ = "http://localhost:3001/angular"
 
   constructor(

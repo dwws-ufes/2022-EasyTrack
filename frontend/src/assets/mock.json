@@ -7,8 +7,8 @@
         "localOrigem": "Nova Iguacu / RJ",
         "localDestino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
-        "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue", "id":2}],
-        "operadorLogistico":{"nome": "Correios", "id":1},
+        "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue", "id":"2"}],
+        "operadorLogistico":{"nome": "Correios", "id":"1"},
         "registroMovimentacoes": [
         {
             "data": "11/11/2022",
@@ -95,8 +95,8 @@
         "localOrigem": "Nova Iguacu / RJ",
         "localDestino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
-        "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue","id":2}],
-        "operadorLogistico":{"nome": "Correios", "id":1},
+        "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue","id":"2"}],
+        "operadorLogistico":{"nome": "Correios", "id":"1"},
         "registroMovimentacoes": [
         {
             "data": "11/11/2022",
@@ -182,8 +182,8 @@
                 "localOrigem": "China",
                 "localDestino": null,
                 "status": "Objeto recebido pelos Correios do Brasil",
-                "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Roupa", "cor": "purple", "id":3}],
-                "operadorLogistico":{"nome": "Correios", "id":1}, 
+                "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Roupa", "cor": "purple", "id":"3"}],
+                "operadorLogistico":{"nome": "Correios", "id":"1"}, 
                 "registroMovimentacoes": [
                     {
                         "data": "26/11/2022",
@@ -206,20 +206,20 @@
             }]}
             ],
     "usuarios":[{
-        "id": 1,
+        "id": "1",
         "usuario": "CGPedroni",
         "nome": "Carlos Guilherme",
         "sobrenome": "Pedroni",
         "cpf": "156.641.357-51",
         "senha":"321245",
         "configuracao":{
-            "atualizacaoAutomatica": false,
+            "atualizacaoAutomatica": true,
             "tipoOrdenacaoPadrao": 0,
             "intervaloAtualizacao": 1,
             "horarioComercialAtualizacao": false
         }},
         {
-            "id": 2,
+            "id": "2",
             "usuario": "thiago",
             "nome": "Thiago",
             "sobrenome": "Redes",
@@ -232,7 +232,7 @@
                 "horarioComercialAtualizacao": false
             }},
         {
-            "id": 3,
+            "id": "3",
             "usuario": "Rose",
             "nome": "Roselli",
             "sobrenome": "Marcia",
@@ -245,5 +245,5 @@
                 "horarioComercialAtualizacao": false
             }}    
     ],
-    "etiquetas": [{"nome": "Natal", "cor": "red", "id":1}, {"nome": "Eletronico", "cor": "blue", "id":2},{"nome": "Roupa", "cor": "purple", "id":3}, {"nome": "Comida", "cor": "green", "id":4}]
+    "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue", "id":"2"},{"nome": "Roupa", "cor": "purple", "id":"3"}, {"nome": "Comida", "cor": "green", "id":"4"}]
 }

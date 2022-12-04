@@ -61,9 +61,9 @@ export class LoginComponent implements OnInit {
 
     this.buscandoUsuario = true
     this.authService.login(usuario, senha)
-      .subscribe(((data: Auth) => {
+      .subscribe(((data:any) => {
         Security.set(data.usuario, data.token.toString())
-        this.configuracaoService.getPorIdUsuario(data.usuario.id).subscribe((c) => {
+        this.configuracaoService.getPorIdUsuario(data.usuario.id).subscribe((c: any) => {
           Security.setConfig(c)
         })
 

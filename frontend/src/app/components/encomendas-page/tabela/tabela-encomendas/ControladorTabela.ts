@@ -53,8 +53,8 @@ export class ControladorTabela extends DataSource<CustonTable> {
 		).subscribe((ctList: CustonTable[]) => this.pacotesSubject.next(ctList))
 	}
 
-	buscaCustom(filtros: Filtro[]){
-		this.pacoteService.getPorFiltro(filtros).pipe(map((pacotes: Pacote[]) => {
+	buscaCustom(filtro: Filtro){
+		this.pacoteService.getPorFiltro(filtro).pipe(map((pacotes:any) => {
 			return pacotes.map((pacote: Pacote) => {
 				let p: CustonTable = {
 					pacote: pacote,

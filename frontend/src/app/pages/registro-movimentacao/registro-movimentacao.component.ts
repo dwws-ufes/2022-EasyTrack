@@ -29,7 +29,7 @@ export class RegistroMovimentacaoComponent implements OnInit {
     this.carregandoLista = true
     this.route.queryParams.subscribe(params => {
       let id = params['id']
-      this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm: RegistroMovimentacao[]) =>{
+      this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm:any) =>{
         this.registroMovimentacoes = rm
         this.carregandoLista = false
       })
