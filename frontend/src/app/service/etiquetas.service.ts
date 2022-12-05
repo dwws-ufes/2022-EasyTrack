@@ -8,19 +8,23 @@ import { GenericService } from './generic.service';
   providedIn: 'root'
 })
 export class EtiquetasService extends GenericService<Etiqueta>{
-
   constructor(http: HttpClient) { 
-    super(http, "etiqueta")
+    super(http, "etiquetas")
   }
 
-  criarEAssociarPacote(etiqueta: Etiqueta, idPacotes: String[]){
-    return this.http.post<any>(`${this._url_}/${this.url}/criarEAssociarPacote`, {etiqueta, idPacotes}, { headers: this.cabecalho() })
-    .subscribe((e) => {
-      console.log(e)
-    })
+  criarEtiqueta(etiqueta: Etiqueta){
+    return this.http.post<any>(`${this._url_}/${this.url}`, {etiqueta}, { headers: this.cabecalho() })
 }
 
-  getPorIdPacote(idPacotes: String[]){
-    return this.http.post<Etiqueta[]>(`${this._url_}/${this.url}/getPorIdPacotes`, {idPacotes}, { headers: this.cabecalho() })
+  getEtiquetas(){
+    return this.http.get<Etiqueta[]>(`${this._url_}/${this.url}`,{ headers: this.cabecalho() })
+  }
+
+  editarEtiqueta(etiqueta: Etiqueta){
+    return this.http.patch<any>(`${this._url_}/${this.url}`, {etiqueta}, { headers: this.cabecalho() })
+  }
+
+  deletarEtiqueta(idEtiqueta: String){
+    return this.http.delete<any>(`${this._url_}/${this.url}/${idEtiqueta}`, { headers: this.cabecalho() })
   }
 }

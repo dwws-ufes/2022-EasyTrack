@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Security } from '../utils/security.util.ts';
 import * as data from '../../assets/mock.json';
+import { AppConfig } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import * as data from '../../assets/mock.json';
 })
 export abstract class GenericService<T> {
   data = data;
-  _url_ = "http://localhost:3001/angular"
+  _url_ = AppConfig.BASE_URL;
 
   constructor(
     protected http: HttpClient, 

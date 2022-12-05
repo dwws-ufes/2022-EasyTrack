@@ -8,14 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConfiguracaoService extends GenericService<Configuracao> {
-  
+
   constructor(http: HttpClient) {
-    super(http, "configuracao")
+    super(http, "configuracoes")
   }
 
   getPorIdUsuario(idUsuario: String){
-    return new Observable((observer) => {
-      observer.next(this.data.usuarios.find(usuario => usuario.id == idUsuario)?.configuracao)})
-    return this.http.post<Configuracao>(`${this._url_}/${this.url}/getPorIdUsuario/${idUsuario}`, { headers: this.cabecalho() })
+    return this.http.post<Configuracao>(`${this._url_}/${this.url}/${idUsuario}`, { headers: this.cabecalho() })
+  }
+
+  patchConfigurcacoes(idUsuario: String, configuracao: Configuracao){
+    return this.http.patch<Configuracao>(`${this._url_}/${this.url}/${idUsuario}`, configuracao, { headers: this.cabecalho() })
   }
 }

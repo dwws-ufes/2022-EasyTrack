@@ -9,6 +9,11 @@ import { GenericService } from './generic.service';
 export class OperadorLogisticoService  extends GenericService<OperadorLogistico>{
 
   constructor(http: HttpClient) {
-    super(http, "operadorLogistico")
+    super(http, "operadores-logisticos")
+  }
+
+  
+  getEtiquetas(){
+    return this.http.get<OperadorLogistico[]>(`${this._url_}/${this.url}`,{ headers: this.cabecalho() })
   }
 }

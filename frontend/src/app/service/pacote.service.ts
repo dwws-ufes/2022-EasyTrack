@@ -12,8 +12,30 @@ import * as data from '../../assets/mock.json';
 export class PacoteService extends GenericService<Pacote>{
   dados = data;
   constructor(http: HttpClient) {
-    super(http, "pacote")
+    super(http, "pacotes")
+  } 
+
+  criarPacote(pacote: Pacote){
+    return this.http.post<any>(`${this._url_}/${this.url}/`, pacote, { headers: this.cabecalho() })
   }
+
+  getPacotes(){
+    return this.http.get<Pacote[]>(`${this._url_}/${this.url}/`, { headers: this.cabecalho() })
+  }
+
+  getPacote(idPacote: String){//Com isso daqui trazendo as movimentacoes nao tem necessidade do crud de registro movimentacoes;
+    return this.http.get<Pacote>(`${this._url_}/${this.url}/${idPacote}`, { headers: this.cabecalho() })
+
+  }
+
+  deletarPacote(idPacote: String){
+    return this.http.delete<any>(`${this._url_}/${this.url}/${idPacote}`, { headers: this.cabecalho() })
+  }
+
+  editarPacote(pacote: Pacote){
+    return this.http.patch<any>(`${this._url_}/${this.url}/`, pacote, { headers: this.cabecalho() })
+  }
+
 
   deletarGrupo(idPacotes: String[]){
     return this.http.post<String[]>(`${this._url_}/${this.url}/deletarGrupo`, idPacotes, { headers: this.cabecalho() })

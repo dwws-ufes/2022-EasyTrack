@@ -13,12 +13,10 @@ export class RegistroMovimentacaoService extends GenericService<Configuracao> {
   dados = data;
 
   constructor(http: HttpClient) {
-    super(http, "registroMovimentacao")
+    super(http, "registro-movimentacoes")
   }
 
   getPorIdPacote(idPacote: String){
-    return new Observable((observer) => {
-      observer.next(this.dados.pacoteList.find(pacote => pacote.codigoOperadorLogistica == idPacote))})
-    return this.http.get<RegistroMovimentacao[]>(`${this._url_}/${this.url}/porIdPacote?id=${idPacote}`, { headers: this.cabecalho() })
+    return this.http.get<RegistroMovimentacao[]>(`${this._url_}/${this.url}/${idPacote}`, { headers: this.cabecalho() })
   }
 }
