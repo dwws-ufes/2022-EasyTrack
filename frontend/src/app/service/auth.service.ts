@@ -12,6 +12,7 @@ import { GenericService } from './generic.service';
 })
 export class AuthService extends GenericService<Usuario>{
   user: any;
+  
   constructor(
     http: HttpClient,
     private router: Router

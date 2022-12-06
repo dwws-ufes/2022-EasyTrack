@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         })
 
         this.buscandoUsuario = false
-        this.router.navigate([''])
+        this.router.navigate(['home'])
       }), (err) => {
         this.buscandoUsuario = false
       })
