@@ -12,6 +12,14 @@ export class EtiquetasService extends GenericService<Etiqueta>{
     super(http, "etiquetas")
   }
 
+  getPorIdPacote(idPacotes: String[]){
+    return this.http.post<any>(`${this._url_}/${this.url}/gePortIdPacote`, {idPacotes}, { headers: this.cabecalho() })
+  }
+
+  criarEAssociarPacote(etiqueta: Etiqueta, idPacotes: String[]){
+    return this.http.post<any>(`${this._url_}/${this.url}/criarEAssociarPacote`, {etiqueta, idPacotes}, { headers: this.cabecalho() })
+  }
+
   criarEtiqueta(etiqueta: Etiqueta){
     return this.http.post<any>(`${this._url_}/${this.url}`, {etiqueta}, { headers: this.cabecalho() })
 }
