@@ -25,15 +25,15 @@ export abstract class GenericService<T> {
   }
 
   salvar(t: T){
-    return this.http.post<T>(`${this._url_}/${this.url}/salvar`, t, { headers: this.cabecalho() })
+    return this.http.post<T>(`${this._url_}/${this.url}/`, t, { headers: this.cabecalho() })
   }
 
   atualizar(t: T){
-    return this.http.put<T>(`${this._url_}/${this.url}/atualizar`, t, { headers: this.cabecalho() })
+    return this.http.put<T>(`${this._url_}/${this.url}/`, t, { headers: this.cabecalho() })
   }
 
   deletar(id: String){
-    return this.http.delete<String>(`${this._url_}/${this.url}/deletar/${id}`, { headers: this.cabecalho() })
+    return this.http.delete<String>(`${this._url_}/${this.url}/${id}`, { headers: this.cabecalho() })
   }
 
   getId(id: String): Observable<T>{
@@ -41,6 +41,6 @@ export abstract class GenericService<T> {
   }
 
   getTodos(): Observable<T[]>{
-    return this.http.get<T[]>(`${this._url_}/${this.url}/getTodos`, { headers: this.cabecalho() })
+    return this.http.get<T[]>(`${this._url_}/${this.url}/`, { headers: this.cabecalho() })
   }
 }

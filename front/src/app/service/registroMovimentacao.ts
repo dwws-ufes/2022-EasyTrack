@@ -4,13 +4,11 @@ import { Configuracao } from '../model/configuracao.model';
 import { GenericService } from './generic.service';
 import { RegistroMovimentacao } from '../model/registroMovimentacao.model';
 import { Observable } from 'rxjs';
-import * as data from '../../assets/mock.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistroMovimentacaoService extends GenericService<Configuracao> {
-  dados = data;
 
   constructor(http: HttpClient) {
     super(http, "registro-movimentacoes")
