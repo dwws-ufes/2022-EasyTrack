@@ -31,11 +31,11 @@ export class Security {
     }
 
 
-    public static getUser(): Usuario | null{
+    public static getUser(): Usuario{
         const data = localStorage.getItem('user')
 
         if(data) return JSON.parse(atob(data))
-        else return null
+        else return new Usuario()
     }
 
     public static getToken(): string | null{

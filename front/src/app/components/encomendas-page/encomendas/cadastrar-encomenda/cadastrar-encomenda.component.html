@@ -5,7 +5,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Trasportadora</mat-label>
       <mat-select formControlName="idOperadorLogistico">
-        <mat-option *ngFor="let t of trasportadoras$ | async" [value]="t.id">{{t.nomeFantasia}}</mat-option>
+        <mat-option *ngFor="let t of trasportadoras$ | async" [value]="t.id">{{t.nome_fantasia}}</mat-option>
       </mat-select>
     </mat-form-field>
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { MatSnackBar } from '@angular/material/snack-bar'
 import { Router } from '@angular/router'
 import { Auth } from 'src/app/interfaces/auth'
 import { Configuracao } from 'src/app/model/configuracao.model'
+import { Pacote } from 'src/app/model/pacote.model'
 import { Usuario } from 'src/app/model/usuario.model'
 import { AuthService } from 'src/app/service/auth.service'
 import { ConfiguracaoService } from 'src/app/service/configuracao.service'
@@ -25,21 +27,22 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private configuracaoService: ConfiguracaoService
+    private configuracaoService: ConfiguracaoService,
+    private snackBar: MatSnackBar
   ) {
     this.formLogin = this.createForm(this.fb)
   }
 
   ngOnInit(): void {
-     if(Security.getToken()) {
-      this.authService.refreshToken().subscribe(
-        (data: any) => {
-          Security.setToken(data.token)
-        }, (err) => {
-          //Security.clear()
-        }
-      )
-    }
+//     if(Security.getToken()) {
+//      this.authService.refreshToken().subscribe(
+//        (data: any) => {
+//          Security.setToken(data.token)
+//        }, (err) => {
+//          //Security.clear()
+//        }
+//      )
+//    }
   }
 
   createForm(fb: FormBuilder){
@@ -62,15 +65,20 @@ export class LoginComponent implements OnInit {
     this.buscandoUsuario = true
     this.authService.login(usuario, senha)
       .subscribe(((data:any) => {
-        Security.set(data.usuario, data.token.toString())
-        this.configuracaoService.getPorIdUsuario(data.usuario.id).subscribe((c: any) => {
-          Security.setConfig(c)
-        })
+        debugger
+        Security.set(data.usuario, data.accessToken)
+        //Security.setConfig(data.config)
 
         this.buscandoUsuario = false
         this.router.navigate([''])
-      }), (err) => {
-        this.buscandoUsuario = false
+      }), (err) => 
+      {
+        debugger
+        this.snackBar.open('Erro ao Logar: '+ err.error.message ,'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'end',
+        })
+        this.buscandoUsuario = false;
       })
   }
 
@@ -88,4 +96,7 @@ export class LoginComponent implements OnInit {
   returnLogin(){
     this.recover_password = false
   }
+
+
+
 }

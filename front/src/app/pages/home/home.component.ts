@@ -8,7 +8,6 @@ import { RegistroMovimentacao } from 'src/app/model/registroMovimentacao.model';
 import { CorreiosService } from 'src/app/service/correios.service';
 import { OperadorLogisticoService } from 'src/app/service/operador-logistico.service';
 import { RegistroMovimentacaoService } from 'src/app/service/registroMovimentacao';
-import { Mapeamento } from 'src/app/utils/mapeamento.util.';
 
 @Component({
   selector: 'app-home',
@@ -56,17 +55,5 @@ export class HomeComponent implements OnInit {
       this.registroMovimentacoes$.next(rm)
     })
   }
-
-  /*verificaCodigoCorreios(codigo: any): any{
-    if(this.regCorreios.test(codigo)){
-      this.correioService.getEncomenda([codigo]).subscribe((response: any) => {
-        this.pacote = Mapeamento.correiosToPacote(response)
-      })
-    }
-   
-    this.registroMovimentacaoService.getPorIdPacote("").subscribe((rm: RegistroMovimentacao[]) => {
-      this.registroMovimentacoes$.next(rm)
-    })
-  }*/
 
 }

@@ -12,8 +12,4 @@ export class OperadorLogisticoService  extends GenericService<OperadorLogistico>
     super(http, "operadores-logisticos")
   }
 
-  
-  getEtiquetas(){
-    return this.http.get<OperadorLogistico[]>(`${this._url_}/${this.url}`,{ headers: this.cabecalho() })
-  }
 }

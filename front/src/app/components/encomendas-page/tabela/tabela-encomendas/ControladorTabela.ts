@@ -73,7 +73,7 @@ export class ControladorTabela extends DataSource<CustonTable> {
 
 		this.pacotesSubject.asObservable().forEach((custonTable: CustonTable[]) => {
 			custonTable.map((ct: CustonTable) => {
-				if(ct.select) linhas.push(ct.pacote.id)
+				if(ct.select && ct.pacote.id) linhas.push(ct.pacote.id)
 			})
 		})
 		return linhas

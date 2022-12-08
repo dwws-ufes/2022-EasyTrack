@@ -13,7 +13,7 @@
         </mat-form-field>
     </form>
     <div>
-        <button mat-raised-button [mat-dialog-close]="formCriarEtiqueta.value" class="btn-dialog-position-ok btn-filter highlight-button-white">Criar</button>
+        <button mat-raised-button [mat-dialog-close]="formCriarEtiqueta.value" (click)="criarEtiqueta()" class="btn-dialog-position-ok btn-filter highlight-button-white">Criar</button>
         <button mat-raised-button mat-dialog-close class="btn-dialog-position-cancel btn-filter highlight-button-white">Cancelar</button>
     </div>
 </div>

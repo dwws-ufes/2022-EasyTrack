@@ -48,7 +48,7 @@ export class CadastrarEncomendaComponent implements OnInit {
     if(c.idOperadorLogistico && c.codigoOperadorLogistico){
       this.pacote = new Pacote();
       this.pacote.operadorLogistico = new OperadorLogistico();
-      this.pacote.operadorLogistico.nome = '';
+      this.pacote.operadorLogistico.nome_fantasia = '';
       this.pacote.codigoOperadorLogistica = this.formAdicionarEncomenda.controls['codigoOperadorLogistico'].value
       this.pacote.operadorLogistico.id = this.formAdicionarEncomenda.controls['idOperadorLogistico'].value
 

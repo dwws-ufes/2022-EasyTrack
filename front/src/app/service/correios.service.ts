@@ -18,6 +18,6 @@ export class CorreiosService  extends GenericService<any>{
 
 
   getEncomenda(codigo: any){
-    return this.http.get<any>('https://api.linketrack.com/track/json?user=teste&token=1abcd00b2731640e886fb41a8a9671ad1434c599dbaa0a0de9a5aa619f29a83f&codigo='+codigo)
+    return this.http.get<any>(this._url_+'rest-request/correios/'+codigo)
   };
 }

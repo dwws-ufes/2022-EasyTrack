@@ -9,12 +9,17 @@
         
         <mat-form-field appearance="outline">
             <mat-label>Usuario</mat-label>
-            <input matInput formControlName="usuario" type="text" placeholder="user@email.com">
+            <input matInput formControlName="usuario" type="text" placeholder="user">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="text" placeholder="user@email.com">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>CPF</mat-label>
-            <input matInput formControlName="cpf" type="string" placeholder="000.000.00-00" mask="000.000.000-00">
+            <input matInput formControlName="documento" type="string" placeholder="000.000.00-00" mask="000.000.000-00">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -44,7 +49,7 @@
         </mat-form-field>
 
         <button *ngIf="!editandoCadastro" type="submit" mat-raised-button color="primary" class="highlight-button-blue">Cadastrar</button>
-        <a *ngIf="!editandoCadastro" [routerLink]="['/login']">voltar para o login</a>
+        <a *ngIf="!editandoCadastro" [routerLink]="['/login']">Voltar para o login</a>
 
         <button *ngIf="editandoCadastro" type="submit" mat-raised-button color="primary" class="highlight-button-blue">Salvar</button>
     </form>

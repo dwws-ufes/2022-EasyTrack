@@ -1,18 +1,17 @@
 
 {
     "pacote":{
-        "codigoOperadorLogistica": "QM477512381BR",
-        "dataPostagem":"04/11/2022",
-        "dataEntrega": "11/11/2022",
-        "localOrigem": "Nova Iguacu / RJ",
-        "localDestino": "Serra / ES",
+        "codigo_operador_logistico": "QM477512381BR",
+        "data_postagem":"04/11/2022",
+        "data_entrega": "11/11/2022",
+        "local_origem": "Nova Iguacu / RJ",
+        "local_destino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
         "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue", "id":"2"}],
         "operadorLogistico":{"nome": "Correios", "id":"1"},
-        "registroMovimentacoes": [
+        "movimentacoes": [
         {
-            "data": "11/11/2022",
-            "hora": "16:35",
+            "data_movimentacao": "2022-11-11T02:49:22.017Z",
             "local": "Serra / ES",
             "status": "Objeto entregue ao destinatário",
             "subStatus": [
@@ -89,15 +88,15 @@
             ]
         }]},
     "pacoteList":[{
-        "codigoOperadorLogistica": "QM477512381BR",
-        "dataPostagem":"04/11/2022",
-        "dataEntrega": "11/11/2022",
-        "localOrigem": "Nova Iguacu / RJ",
-        "localDestino": "Serra / ES",
+        "codigo_operador_logistico": "QM477512381BR",
+        "data_postagem":"04/11/2022",
+        "data_entrega": "11/11/2022",
+        "local_origem": "Nova Iguacu / RJ",
+        "local_destino": "Serra / ES",
         "status": "Objeto entregue ao destinatário",
         "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue","id":"2"}],
         "operadorLogistico":{"nome": "Correios", "id":"1"},
-        "registroMovimentacoes": [
+        "movimentacoes": [
         {
             "data": "11/11/2022",
             "hora": "16:35",
@@ -176,15 +175,15 @@
             "Local: Agência dos Correios - Nova Iguacu / RJ"
             ]}]},
             {
-                "codigoOperadorLogistica": "NA671944733BR",
-                "dataPostagem":"20/11/2022",
-                "dataEntrega": null,
-                "localOrigem": "China",
-                "localDestino": null,
+                "codigo_operador_logistico": "NA671944733BR",
+                "data_postagem":"20/11/2022",
+                "data_entrega": null,
+                "local_origem": "China",
+                "local_destino": null,
                 "status": "Objeto recebido pelos Correios do Brasil",
                 "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Roupa", "cor": "purple", "id":"3"}],
                 "operadorLogistico":{"nome": "Correios", "id":"1"}, 
-                "registroMovimentacoes": [
+                "movimentacoes": [
                     {
                         "data": "26/11/2022",
                         "hora": "13:54",

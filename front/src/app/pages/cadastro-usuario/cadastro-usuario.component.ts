@@ -4,6 +4,9 @@ import { Usuario } from 'src/app/model/usuario.model';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { ActivatedRoute } from '@angular/router';
 import { Security } from 'src/app/utils/security.util.ts';
+import { AuthService } from 'src/app/service/auth.service';
+import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -22,7 +25,11 @@ export class CadastroUsuarioComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private authService: AuthService,
+    private router: Router,
+    private snackBar: MatSnackBar
+    
   ) {
     this.formCadastro = this.createForm(this.fb)
   }
@@ -30,11 +37,11 @@ export class CadastroUsuarioComponent implements OnInit {
   ngOnInit(): void {
     const usuario = Security.getUser()
     
-    if(usuario){
+    if(usuario.id){
       this.carregando = true
       this.usuarioService.getId(usuario.id).subscribe((usr: Usuario) => {
         this.formCadastro.controls['usuario'].setValue(usr.usuario)
-        this.formCadastro.controls['cpf'].setValue(usr.cpf)
+        this.formCadastro.controls['documento'].setValue(usr.documento)
         this.formCadastro.controls['nome'].setValue(usr.nome)
         this.formCadastro.controls['sobrenome'].setValue(usr.sobrenome)
         this.editandoCadastro = true
@@ -60,23 +67,40 @@ export class CadastroUsuarioComponent implements OnInit {
       sobrenome: ['', Validators.compose([
         Validators.required
       ])],
-      cpf: ['', Validators.compose([
+      email: ['', Validators.compose([
+        Validators.required
+      ])],
+      documento: ['', Validators.compose([
         Validators.required
       ])]
     })
   }
 
   submitForm(){
-    let usuario = new Usuario
+    let usuario :any = {}
     usuario.nome = this.formCadastro.controls['nome'].value
     usuario.sobrenome = this.formCadastro.controls['sobrenome'].value
-    usuario.cpf = this.formCadastro.controls['cpf'].value
+    usuario.documento = this.formCadastro.controls['documento'].value
     usuario.usuario = this.formCadastro.controls['usuario'].value
     usuario.senha = this.formCadastro.controls['senha'].value
+    usuario.email = this.formCadastro.controls['email'].value
     let confirmarSenha = this.formCadastro.controls['confirmarSenha'].value
+    if(usuario.usuario && usuario.nome && usuario.sobrenome && usuario.senha && (usuario.senha == confirmarSenha) && usuario.documento && usuario.email){
+      this.authService.registrar(usuario).subscribe(result => {
+        setTimeout(() => {
+          this.router.navigate(['/login'])
+          this.snackBar.open('Usuário Registrado, você será redirecionado para tela de login!','Fechar', {
+            duration: 3000,
+            horizontalPosition: 'end',
+          });
+        }, (3000));
 
-    if(usuario.usuario && usuario.nome && usuario.sobrenome && usuario.senha && usuario.senha && confirmarSenha && usuario.cpf){
-      this.usuarioService.salvar(usuario)
+      }, error =>{
+        this.snackBar.open('Erro ao registrar usuário: '+ error.error.message ,'Fechar', {
+          duration: 3000,
+          horizontalPosition: 'end',
+        });
+      })
     }
   }
 }

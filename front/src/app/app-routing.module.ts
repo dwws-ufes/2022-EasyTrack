@@ -15,7 +15,7 @@ const routes: Routes = [
     path: '', 
     canActivate: [AuthService],
     children: [
-      {path: '', component: PaginaUsuarioComponent},
+      {path: '', component: HomeComponent},
       {path: 'encomendas', component: EncomendasComponent},
       {path: 'mov', component: RegistroMovimentacaoComponent}
     ]

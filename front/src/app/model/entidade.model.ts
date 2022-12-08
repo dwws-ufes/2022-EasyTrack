@@ -1,5 +1,5 @@
 export abstract class Entidade {
-    id: String = ''
+    id?: String;
     criadoEm?: Date
     atualizadoEm?: Date
 }

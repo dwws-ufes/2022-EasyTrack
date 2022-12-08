@@ -2,10 +2,14 @@ import { Entidade } from "./entidade.model"
 import { Pacote } from "./pacote.model"
 
 export class OperadorLogistico  extends Entidade{
-    nome?: String
- 
-    constructor(nome?: String){
+    nome_fantasia?: String
+    documento?: String
+    razao_social?: String
+
+    constructor(nome?: String, documento?: String, razao?:String){
         super()
-        if(nome) this.nome = nome
+        this.nome_fantasia = nome
+        this.documento = documento
+        this.razao_social = razao
     }
 }

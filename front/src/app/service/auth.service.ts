@@ -27,12 +27,14 @@ export class AuthService extends GenericService<Usuario>{
     return true
   }
 
+
+  registrar(usuario: Usuario){
+    return this.http.post<Usuario>(`${this._url_}/${this.url}/register`, usuario, { headers: this.cabecalho() })
+  }
+
+
   login(nome: String, senha: String){
-    return new Observable((observer) => {
-      this.user = this.data.usuarios.find(usuario => usuario.usuario == nome)
-      observer.next( this.user?.senha == senha ? {"usuario":this.user, "token":"tokenvalido"} : new ErrorEvent('404 Not Found'))}) 
-    //LOGIN não pode ser feito de maneira nenhuma via get, pois deixa senha em evidencia na url
-    return this.http.get<Auth>(`${this._url_}/${this.url}/${nome}/${senha}`)
+    return this.http.post<Auth>(`${this._url_}/${this.url}/login`, {"usuario":nome, "senha":senha})
   }
 
   logout(){
@@ -41,8 +43,6 @@ export class AuthService extends GenericService<Usuario>{
   }
 
   refreshToken(){
-    return new Observable((observer) => {
-      observer.next({"usuario":this.user, "token":"tokenvalido"})})
     return this.http.get<any>(`${this._url_}/${this.url}/refreshToken`, { headers: this.cabecalho() })
   }
 

@@ -59,9 +59,6 @@ export class EncomendasComponent implements OnInit {
   }
 
   dialogCriarEtiqueta(){
-    const idSelecionado = this.listaPacotes$.idPacotesSelecionados()
-
-    if(idSelecionado.length > 0){
       const dialogRef = this.dialog.open(CriarEtiquetaComponent)
 
       // dialogRef.afterClosed().subscribe(result => {
@@ -71,12 +68,10 @@ export class EncomendasComponent implements OnInit {
       //   //   //this.etiquetasService.criarEAssociarPacote(new Etiqueta(nome, cor), idSelecionado)
       //   // }
       // )
-    
-    } else {
+
       this.toastr.warning('É necessário selecionar alguma encomenda.', 'Alerta', {
         timeOut: 3000,
       })
-    }
   }
 
   dialogEditarEtiqueta(){
