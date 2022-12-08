@@ -29,7 +29,12 @@
 				</button>
 			</div>
         </form>
-
+		
+		<div class="home-form-button" *ngIf="pesquisa">
+			<button mat-raised-button (click)="pesquisa=false" class="highlight-button-white">
+				Voltar
+			</button>
+		</div>
 		<div *ngIf="pesquisa" class="home-registro-movimentacoes">
 			<app-movimentacao-pacote [registroMovimentacoes$]="registroMovimentacoes$"></app-movimentacao-pacote>
 		</div>

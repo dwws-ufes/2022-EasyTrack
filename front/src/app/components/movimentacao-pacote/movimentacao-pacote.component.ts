@@ -10,7 +10,7 @@ import { MaisInfoMovimentacaoComponent } from '../mais-info-movimentacao/mais-in
   styleUrls: ['./movimentacao-pacote.component.css']
 })
 export class MovimentacaoPacoteComponent implements OnInit {
-
+  
   @Input() registroMovimentacoes$?: Subject<RegistroMovimentacao[]>
   registroMovimentacoes?: RegistroMovimentacao[]
 
@@ -25,7 +25,7 @@ export class MovimentacaoPacoteComponent implements OnInit {
   openModal(rm:any){
     
     const dialogRef = this.dialog.open(MaisInfoMovimentacaoComponent, {
-      data: {response: rm.response.toString(), status: rm.status},
+      data: {response: rm.response?.toString(), status: rm.status},
     });
   }
 
