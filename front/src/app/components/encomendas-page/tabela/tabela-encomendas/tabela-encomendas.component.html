@@ -14,7 +14,7 @@
 
     <ng-container matColumnDef="codigoOperadorLogistica">
         <th mat-header-cell *matHeaderCellDef>Código do Pacote</th>
-        <td mat-cell *matCellDef="let element"> {{element.pacote.codigoOperadorLogistica}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.pacote.codigo_operador_logistico}} </td>
     </ng-container>
 
    <ng-container matColumnDef="status">
@@ -29,22 +29,22 @@
 
     <ng-container matColumnDef="dataPostagem">
         <th mat-header-cell *matHeaderCellDef>Data de Postagem</th>
-        <td mat-cell *matCellDef="let element"> {{element.pacote.dataPostagem | date:"dd/MM/yyyy"}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.pacote.data_postagem | date:"dd/MM/yyyy"}} </td>
     </ng-container>
 
     <ng-container matColumnDef="dataEntrega">
         <th mat-header-cell *matHeaderCellDef>Data de Entrega</th>
-        <td mat-cell *matCellDef="let element"> {{element.pacote.dataEntrega | date:"dd/MM/yyyy"}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.pacote.data_entrega | date:"dd/MM/yyyy"}} </td>
     </ng-container>
 
     <ng-container matColumnDef="origem">
         <th mat-header-cell *matHeaderCellDef>Local de Origem</th>
-        <td mat-cell *matCellDef="let element"> {{element.pacote.localOrigem}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.pacote.local_origem}} </td>
     </ng-container>
 
     <ng-container matColumnDef="destino">
         <th mat-header-cell *matHeaderCellDef>Local de Destino</th>
-        <td mat-cell *matCellDef="let element"> {{element.pacote.localDestino}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.pacote.local_destino}} </td>
     </ng-container>
 
     <ng-container matColumnDef="etiqueta">
