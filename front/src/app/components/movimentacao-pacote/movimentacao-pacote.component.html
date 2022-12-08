@@ -2,8 +2,19 @@
     <li *ngFor="let rm of registroMovimentacoes">
         <i class="glyphicon milestones-ajust"><mat-icon>local_shipping</mat-icon></i>
         <div class="group-moviment">
-            <h4><b>{{rm.data_movimentacao | date:'dd/MM/yyyy, h:mm a'}}</b></h4>
-            <h4>Local: <b>{{rm.local_origem}}</b></h4>
+            <mat-card class="example-card">
+                  <mat-card-title-group>
+                    <mat-card-title>{{rm.status}}</mat-card-title>
+                    <mat-card-subtitle>{{rm.data_movimentacao | date:'dd/MM/yyyy, h:mm a'}}</mat-card-subtitle>
+                    <mat-icon (click)="openModal(rm)" style="color:#3f51b5; cursor:pointer">info</mat-icon>
+                  </mat-card-title-group>
+                <mat-card-content>
+                    <h4 *ngIf="rm.local_origem">Local Origem: <b>{{rm.local_origem}}</b></h4>
+                    <h4 *ngIf="rm.local_destino">Local Origem: <b>{{rm.local_destino}}</b></h4>
+                </mat-card-content>
+              </mat-card>
         </div>
     </li>
 </ul>
+
+

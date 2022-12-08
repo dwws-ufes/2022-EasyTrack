@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     this.buscandoUsuario = true
     this.authService.login(usuario, senha)
       .subscribe(((data:any) => {
-        debugger
+        
         Security.set(data.usuario, data.accessToken)
         //Security.setConfig(data.config)
 
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([''])
       }), (err) => 
       {
-        debugger
+        
         this.snackBar.open('Erro ao Logar: '+ err.error.message ,'Fechar', {
           duration: 3000,
           horizontalPosition: 'end',

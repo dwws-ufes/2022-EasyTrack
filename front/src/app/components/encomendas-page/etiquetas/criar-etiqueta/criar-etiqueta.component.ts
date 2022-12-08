@@ -31,7 +31,7 @@ export class CriarEtiquetaComponent implements OnInit {
     let etiqueta = new Etiqueta(this.formCriarEtiqueta.controls['nome'].value, this.formCriarEtiqueta.controls['cor'].value);
     if(etiqueta.nome && etiqueta.cor){
     this.etiquetasService.salvar(etiqueta).subscribe( result => {
-      debugger
+      
       })
     }
     else{

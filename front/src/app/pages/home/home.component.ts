@@ -9,6 +9,8 @@ import { CorreiosService } from 'src/app/service/correios.service';
 import { OperadorLogisticoService } from 'src/app/service/operador-logistico.service';
 import { RegistroMovimentacaoService } from 'src/app/service/registroMovimentacao';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -51,9 +53,93 @@ export class HomeComponent implements OnInit {
   pesquisar(){
     const id = this.formPesquisa.controls['buscaCodigo'].value
     this.pesquisa = true
-    this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm: any) => {
-      this.registroMovimentacoes$.next(rm)
-    })
+    const mov :any = pacoteList[0].movimentacoes
+    this.registroMovimentacoes$.next(mov)
+    //this.registroMovimentacaoService.getPorIdPacote(id).subscribe((rm: any) => {
+    //  this.registroMovimentacoes$.next(rm)
+    //})
   }
 
 }
+const pacoteList = [
+  {
+      "codigo_operador_logistico": "QM477512381BR",
+      "data_postagem":"04/11/2022",
+      "data_entrega": "11/11/2022",
+      "local_origem": "Nova Iguacu / RJ",
+      "local_destino": "Serra / ES",
+      "status": "Objeto entregue ao destinatário",
+      "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Eletronico", "cor": "blue", "id":"2"}],
+      "operadorLogistico":{"nome": "Correios", "id":"1"},
+      "movimentacoes": [
+      {
+          "data_movimentacao": "11/11/2022, 16:23",
+          "local_origem": "",
+          "local_destino": "",
+          "status": "Objeto entregue ao destinatário",
+          "response": [
+          "Local: Agência dos Correios - Serra / ES"
+          ]
+      },
+      {
+          "data_movimentacao": "10/11/2022, 14:53",
+          "local_origem": "",
+          "local_destino": "",
+          "status": "Objeto aguardando retirada no endereço indicado",
+          "responde": [
+          "Local: Agência dos Correios - Serra / ES",
+          "Para retirá-lo, é preciso informar o código do objeto e apresentar documentação que comprove ser o destinatário ou pessoa por ele oficialmente autorizada.",
+          "Agência dos Correios: Serra / ES"
+          ]
+      },
+      {
+          "data_movimentacao": "10/11/2022, 09:43",
+          "local_origem": "Unidade de Distribuição - Serra / ES",
+          "local_destino": "Agência dos Correios - Serra / ES",
+          "status": "Objeto encaminhado",
+          "responde": [
+          "Origem: Unidade de Distribuição - Serra / ES",
+          "Destino: Agência dos Correios - Serra / ES"
+          ]
+      }]},
+      {
+          "codigo_operador_logistico": "NA671944733BR",
+          "data_postagem":"20/11/2022",
+          "data_entrega": null,
+          "local_origem": "China",
+          "local_destino": null,
+          "status": "Objeto recebido pelos Correios do Brasil",
+          "etiquetas": [{"nome": "Natal", "cor": "red", "id":"1"}, {"nome": "Roupa", "cor": "purple", "id":"3"}],
+          "operadorLogistico":{"nome": "Correios", "id":"1"}, 
+          "movimentacoes": [
+              {
+                  "data_movimentacao": "11/11/2022, 16:23",
+                  "local_origem": "",
+                  "local_destino": "",
+                  "status": "Objeto entregue ao destinatário",
+                  "response": [
+                  "Local: Agência dos Correios - Serra / ES"
+                  ]
+              },
+              {
+                  "data_movimentacao": "10/11/2022, 14:53",
+                  "local_origem": "",
+                  "local_destino": "",
+                  "status": "Objeto aguardando retirada no endereço indicado",
+                  "responde": [
+                  "Local: Agência dos Correios - Serra / ES",
+                  "Para retirá-lo, é preciso informar o código do objeto e apresentar documentação que comprove ser o destinatário ou pessoa por ele oficialmente autorizada.",
+                  "Agência dos Correios: Serra / ES"
+                  ]
+              },
+              {
+                  "data_movimentacao": "10/11/2022, 09:43",
+                  "local_origem": "Unidade de Distribuição - Serra / ES",
+                  "local_destino": "Agência dos Correios - Serra / ES",
+                  "status": "Objeto encaminhado",
+                  "responde": [
+                  "Origem: Unidade de Distribuição - Serra / ES",
+                  "Destino: Agência dos Correios - Serra / ES"
+                  ]
+              }]}
+      ]
