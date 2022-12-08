@@ -28,11 +28,10 @@ export class ConfiguracaoComponent implements OnInit {
 
   ngOnInit(): void {
     const configuracao = Security.getConfig()
-
-    this.formConfig.controls['atualizacaoAutomatica'].setValue(configuracao?.atualizacaoAutomatica)
-    this.formConfig.controls['horarioComercialAtualizacao'].setValue(configuracao?.horarioComercialAtualizacao)
-    this.formConfig.controls['intervaloAtualizacao'].setValue(configuracao?.intervaloAtualizacao)
-    this.formConfig.controls['tipoOrdenacaoPadrao'].setValue(configuracao?.tipoOrdenacaoPadrao)
+    this.formConfig.controls['atualizacaoAutomatica'].setValue(configuracao?.update_automatico)
+    this.formConfig.controls['horarioComercialAtualizacao'].setValue(configuracao?.horario_comercial_atualizacao)
+    this.formConfig.controls['intervaloAtualizacao'].setValue(configuracao?.intervalo_atualizacao)
+    this.formConfig.controls['tipoOrdenacaoPadrao'].setValue(configuracao?. tipo_ordenacao_padrao)
   }
   
   createForm(fb: FormBuilder){
@@ -50,10 +49,10 @@ export class ConfiguracaoComponent implements OnInit {
 
   save(){
     let configuracao = new Configuracao()
-    configuracao.atualizacaoAutomatica = this.formConfig.controls['atualizacaoAutomatica'].value
-    configuracao.horarioComercialAtualizacao = this.formConfig.controls['horarioComercialAtualizacao'].value
-    configuracao.intervaloAtualizacao = this.formConfig.controls['intervaloAtualizacao'].value
-    configuracao.tipoOrdenacaoPadrao = this.formConfig.controls['tipoOrdenacaoPadrao'].value
+    configuracao.update_automatico = this.formConfig.controls['atualizacaoAutomatica'].value
+    configuracao.horario_comercial_atualizacao = this.formConfig.controls['horarioComercialAtualizacao'].value
+    configuracao.intervalo_atualizacao = this.formConfig.controls['intervaloAtualizacao'].value
+    configuracao.tipo_ordenacao_padrao = this.formConfig.controls['tipoOrdenacaoPadrao'].value
 
     this.configuracaoService.salvar(configuracao)
   }

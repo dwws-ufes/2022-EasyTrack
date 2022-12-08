@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OperadorLogistico } from 'src/app/model/operadorLogistico.model';
+import { OperadorLogistico } from 'src/app/model/operador-logistico.model';
 import { OperadorLogisticoService } from 'src/app/service/operador-logistico.service';
 
 @Component({

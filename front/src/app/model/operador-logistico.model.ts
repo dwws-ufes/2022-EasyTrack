@@ -1,7 +1,6 @@
 import { Entidade } from "./entidade.model"
-import { Pacote } from "./pacote.model"
 
-export class OperadorLogistico  extends Entidade{
+export class OperadorLogistico extends Entidade{
     nome_fantasia?: String
     documento?: String
     razao_social?: String

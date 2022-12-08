@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Configuracao } from '../model/configuracao.model';
 import { GenericService } from './generic.service';
-import { RegistroMovimentacao } from '../model/registroMovimentacao.model';
 import { Observable } from 'rxjs';
+import { RegistroMovimentacao } from '../model/registro-movimentacao.model';
 
 @Injectable({
   providedIn: 'root'

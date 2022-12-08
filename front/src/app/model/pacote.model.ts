@@ -1,25 +1,16 @@
 import { Entidade } from "./entidade.model";
 import { Etiqueta } from "./etiqueta.model";
-import { OperadorLogistico } from "./operadorLogistico.model";
-import { RegistroMovimentacao } from "./registroMovimentacao.model";
+import { OperadorLogistico } from "./operador-logistico.model";
+import { RegistroMovimentacao } from "./registro-movimentacao.model";
 
 export class Pacote extends Entidade {
-    dataPostagem?: Date
-    dataEntrega?: Date
-    codigoOperadorLogistica?: String
-    localOrigem?: String
-    localDestino?: String;
-    status?: String
+    data_postagem?: Date;
+    data_entrega?: Date;
+    codigo_operador_logistico?: string;
+    local_origem?: string;
+    local_destino?: string;
+    status?: string;
+    movimentacoes?: RegistroMovimentacao[]
     etiquetas: Etiqueta[] = []
     operadorLogistico?: OperadorLogistico
-    registroMovimentacoes?: RegistroMovimentacao[]
-
-    constructor(codigoOperadorLogistica?: String, localOrigem?: String, localDestino?: String, dataPostagem?: Date, dataEntrega?: Date){
-        super()
-        this.codigoOperadorLogistica = codigoOperadorLogistica;
-        this.localOrigem = localOrigem;
-        this.localDestino = localDestino;
-        this.dataPostagem = dataPostagem;
-        this.dataEntrega = dataEntrega;
-    }
 }

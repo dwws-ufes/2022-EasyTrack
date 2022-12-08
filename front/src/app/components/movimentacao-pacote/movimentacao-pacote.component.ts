@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { RegistroMovimentacao } from 'src/app/model/registroMovimentacao.model';
+import { RegistroMovimentacao } from 'src/app/model/registro-movimentacao.model';
 
 @Component({
   selector: 'app-movimentacao-pacote',

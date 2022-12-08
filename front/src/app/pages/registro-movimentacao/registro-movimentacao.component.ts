@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pacote } from 'src/app/model/pacote.model';
-import { RegistroMovimentacao } from 'src/app/model/registroMovimentacao.model';
+import { RegistroMovimentacao } from 'src/app/model/registro-movimentacao.model';
 import { RegistroMovimentacaoService } from 'src/app/service/registroMovimentacao';
 import { ActivatedRoute } from '@angular/router';
 import { PacoteService } from 'src/app/service/pacote.service';
@@ -26,7 +26,7 @@ export class RegistroMovimentacaoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.pacote?.codigoOperadorLogistica){
+    if(!this.pacote?.codigo_operador_logistico){
     this.carregandoLista = true
     this.route.queryParams.subscribe(params => {
       let id = params['id']

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { OperadorLogistico } from 'src/app/model/operadorLogistico.model';
+import { OperadorLogistico } from 'src/app/model/operador-logistico.model';
 
 @Component({
   selector: 'form-select-operador-logistico',

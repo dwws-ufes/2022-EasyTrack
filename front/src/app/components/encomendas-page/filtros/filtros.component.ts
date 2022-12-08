@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Etiqueta } from 'src/app/model/etiqueta.model';
-import { OperadorLogistico } from 'src/app/model/operadorLogistico.model';
+import { OperadorLogistico } from 'src/app/model/operador-logistico.model';
 import { TipoFiltro } from 'src/app/model/filtro.model';
 import { EtiquetasService } from 'src/app/service/etiquetas.service';
 import { OperadorLogisticoService } from 'src/app/service/operador-logistico.service';

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { OperadorLogistico } from 'src/app/model/operadorLogistico.model';
+import { OperadorLogistico } from 'src/app/model/operador-logistico.model';
 import { Pacote } from 'src/app/model/pacote.model';
 import { OperadorLogisticoService } from 'src/app/service/operador-logistico.service';
 
@@ -49,7 +49,7 @@ export class CadastrarEncomendaComponent implements OnInit {
       this.pacote = new Pacote();
       this.pacote.operadorLogistico = new OperadorLogistico();
       this.pacote.operadorLogistico.nome_fantasia = '';
-      this.pacote.codigoOperadorLogistica = this.formAdicionarEncomenda.controls['codigoOperadorLogistico'].value
+      this.pacote.codigo_operador_logistico = this.formAdicionarEncomenda.controls['codigoOperadorLogistico'].value
       this.pacote.operadorLogistico.id = this.formAdicionarEncomenda.controls['idOperadorLogistico'].value
 
       this.dialog.close()

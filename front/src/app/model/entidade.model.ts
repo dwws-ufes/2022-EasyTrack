@@ -1,5 +1,5 @@
-export abstract class Entidade {
-    id?: String;
-    criadoEm?: Date
-    atualizadoEm?: Date
+export class Entidade {
+    id?: string;
+    criado_em?: Date;
+    atualizado_em?: Date;
 }
