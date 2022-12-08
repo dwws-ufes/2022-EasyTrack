@@ -28,4 +28,14 @@ export class MovimentacaoPacoteComponent implements OnInit {
       data: {response: rm.response.toString(), status: rm.status},
     });
   }
+
+  getIconeForStatus(status:any){
+    if(status.toLowerCase().includes("objeto postado")){
+      return('airplanemode_active')
+    }
+    if(status.toLowerCase().includes("entregue")){
+      return('house')
+    }
+    return('local_shipping')
+  }
 }

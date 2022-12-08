@@ -1,6 +1,6 @@
 <ul class="milestones milestones-bordered-bottom">
     <li *ngFor="let rm of registroMovimentacoes">
-        <i class="glyphicon milestones-ajust"><mat-icon>local_shipping</mat-icon></i>
+        <i class="glyphicon milestones-ajust"><mat-icon>{{getIconeForStatus(rm.status)}}</mat-icon></i>
         <div class="group-moviment">
             <mat-card class="example-card">
                   <mat-card-title-group>
