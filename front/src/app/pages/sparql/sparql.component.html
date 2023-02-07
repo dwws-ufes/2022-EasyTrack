@@ -1,0 +1,61 @@
+<div class="content-alight-center">
+    <div class="content-sparql card-white">
+        <div class="input-sparql">
+            <h2 class="title">SPARQL</h2>
+            <form [formGroup]="formSparql" (ngSubmit)="busca_sparql()" class="form-center">
+                <form-input-text
+                    [label]="'Subject'"
+                    [custonFormControlName]="'subject'"
+                    [placeholder] = "'Jordan'"
+                ></form-input-text>
+
+                <form-input-text
+                    [label]="'Predicate'"
+                    [custonFormControlName]="'predicate'"
+                    [placeholder] = "'Predicate'"
+                ></form-input-text>
+
+                <section>
+                    <mat-checkbox [checked]="formSparql.controls['literal'].value" (change)="changeLiteral()">Literal</mat-checkbox>
+                </section>
+
+                <form-input-text
+                    [label]="'Object'"
+                    [custonFormControlName]="'object'"
+                    [placeholder] = "'Object'"
+                ></form-input-text>
+                
+                <form-input-text
+                    [label]="'Named Graph IRI'"
+                    [custonFormControlName]="'named_graph_iri'"
+                    [placeholder] = "'um:records:test'"
+                ></form-input-text>
+
+                <button mat-raised-button type="submit" class="highlight-button-white btn-W50">Buscar</button>
+            </form>
+        </div>
+
+        <div class="ouput-sparql">
+            <h2 class="title">Dados</h2>
+            <table mat-table [dataSource]="listaSparql$">
+                <ng-container matColumnDef="subject">
+                    <th mat-header-cell *matHeaderCellDef>Subject</th>
+                    <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="predicate">
+                    <th mat-header-cell *matHeaderCellDef>Predicate</th>
+                    <td mat-cell *matCellDef="let element"> {{element.predicate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="object">
+                    <th mat-header-cell *matHeaderCellDef>Object</th>
+                    <td mat-cell *matCellDef="let element"> {{element.object}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayed"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayed;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

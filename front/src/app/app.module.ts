@@ -33,7 +33,8 @@ import { InputTextComponent } from './components/form/input-text/input-text.comp
 import { SelectOperadorLogisticoComponent } from './components/form/select-operador-logistico/select-operador-logistico.component';
 import { InputDateIntervalComponent } from './components/form/input-date-interval/input-date-interval.component';
 import { PaginaUsuarioComponent } from './pages/pagina-usuario/pagina-usuario.component'
-import { MaisInfoMovimentacaoComponent } from './components/mais-info-movimentacao/mais-info-movimentacao.component'
+import { MaisInfoMovimentacaoComponent } from './components/mais-info-movimentacao/mais-info-movimentacao.component';
+import { SparqlComponent } from './pages/sparql/sparql.component'
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MaisInfoMovimentacaoComponent } from './components/mais-info-movimentac
     SelectOperadorLogisticoComponent,
     InputDateIntervalComponent,
     PaginaUsuarioComponent,
-    MaisInfoMovimentacaoComponent
+    MaisInfoMovimentacaoComponent,
+    SparqlComponent
     ],
   imports: [
     BrowserModule,

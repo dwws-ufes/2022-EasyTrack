@@ -1,0 +1,28 @@
+.content-sparql {
+    background-color: white;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    min-width: 70%;
+    max-height: 90%;
+}
+
+.input-sparql {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.ouput-sparql {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+table {
+    width: 100%;
+}
+
+.btn-W50{
+    width: 180px;
+    justify-self: center;
+}
