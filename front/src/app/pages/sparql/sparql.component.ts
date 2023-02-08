@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SparqlData } from 'src/app/interfaces/sparql';
+import { SparqlService } from 'src/app/service/sparql.service';
 
 @Component({
   selector: 'app-sparql',
@@ -14,7 +16,8 @@ export class SparqlComponent implements OnInit {
   formSparql: FormGroup
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sparqlService: SparqlService
   ) { 
     this.formSparql = this.createForm(this.fb)
   }
@@ -37,14 +40,17 @@ export class SparqlComponent implements OnInit {
   }
 
   busca_sparql(){
-    let str_sparql: any = {}
-
-    str_sparql.subject = this.formSparql.controls['subject'].value
-    str_sparql.predicate = this.formSparql.controls['predicate'].value
-    str_sparql.object = this.formSparql.controls['object'].value
-    str_sparql.literal = this.formSparql.controls['literal'].value
-    str_sparql.named_graph_iri = this.formSparql.controls['named_graph_iri'].value
+    let str_sparql: SparqlData = {
+      subject: this.formSparql.controls['subject'].value,
+      predicate: this.formSparql.controls['predicate'].value,
+      object: this.formSparql.controls['object'].value,
+      literal: this.formSparql.controls['literal'].value,
+      iri: this.formSparql.controls['named_graph_iri'].value
+    }
 
     this.formSparql.reset()
+    this.sparqlService.sendQuery(str_sparql).subscribe(result => {
+      this.listaSparql$ = result
+    })
   }
 }
