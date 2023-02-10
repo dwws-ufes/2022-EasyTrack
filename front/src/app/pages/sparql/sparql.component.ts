@@ -30,7 +30,7 @@ export class SparqlComponent implements OnInit {
       subject: [''],
       predicate: [''],
       object: [''],
-      literal: false,
+      // literal: false,
       named_graph_iri: ['']
     })
   }
@@ -44,7 +44,7 @@ export class SparqlComponent implements OnInit {
       subject: this.formSparql.controls['subject'].value,
       predicate: this.formSparql.controls['predicate'].value,
       object: this.formSparql.controls['object'].value,
-      literal: this.formSparql.controls['literal'].value,
+      // literal: this.formSparql.controls['literal'].value,
       iri: this.formSparql.controls['named_graph_iri'].value
     }
 

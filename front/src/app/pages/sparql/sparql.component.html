@@ -6,29 +6,29 @@
                 <form-input-text
                     [label]="'Subject'"
                     [custonFormControlName]="'subject'"
-                    [placeholder] = "'OperadoresLogisticos'"
+                    [placeholder] = "'operadorLogistico'"
                 ></form-input-text>
 
                 <form-input-text
                     [label]="'Predicate'"
                     [custonFormControlName]="'predicate'"
-                    [placeholder] = "'Predicate'"
+                    [placeholder] = "'ol:nome_fantasia'"
                 ></form-input-text>
 
-                <section>
+                <!-- <section>
                     <mat-checkbox [checked]="formSparql.controls['literal'].value" (change)="changeLiteral()">Literal</mat-checkbox>
-                </section>
+                </section> -->
 
                 <form-input-text
                     [label]="'Object'"
                     [custonFormControlName]="'object'"
-                    [placeholder] = "'Object'"
+                    [placeholder] = "'Total Express'"
                 ></form-input-text>
                 
                 <form-input-text
                     [label]="'Named Graph IRI'"
                     [custonFormControlName]="'named_graph_iri'"
-                    [placeholder] = "'um:records:test'"
+                    [placeholder] = "'http://easytrack.onrender.com/api/sparql/ontology/OperadorLogistico'"
                 ></form-input-text>
 
                 <button mat-raised-button type="submit" class="highlight-button-white btn-W50">Buscar</button>
