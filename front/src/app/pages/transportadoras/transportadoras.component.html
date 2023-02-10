@@ -12,9 +12,40 @@
                     <h4><b>Nome Fantasia:</b> {{t.nome_fantasia}}</h4>
                     <h4><b>Razão Social:</b> {{t.razao_social}}</h4>
                     <h4><b>CNPJ:</b> {{t.documento}}</h4>
+                    <h4 style="text-align: center;" *ngIf="t.nome_fantasia=='Correios' && infoExtra?.operador!='Correios'"><a style="    color: -webkit-link;
+                        cursor: pointer;
+                        text-decoration: underline;" (click)="getSparql('Correios')">Mais Informações</a></h4>
+                                  <h4 style="text-align: center;" *ngIf="t.nome_fantasia=='Correios' && infoExtra?.operador=='Correios'"><a style="    color: -webkit-link;
+                                    cursor: pointer;
+                                    text-decoration: underline;" (click)="infoExtra=null">Ocultar</a></h4>
+                    <div *ngIf="infoExtra?.operador=='Correios' && t.nome_fantasia=='Correios'">
+                        <h4><b>Site: </b><a [href]="infoExtra.results.bindings[0].wikiPageExternalLink.value">{{infoExtra.results.bindings[0].wikiPageExternalLink.value}}</a></h4>     
+                        <h4><b>Descrição:</b> {{infoExtra.results.bindings[0].comment.value}}</h4>
+                    </div>
                 </div>
                 <mat-divider></mat-divider>
             </div>
         </mat-list>
+        <h1 class="title" style="margin: 16px 0 16px;">Transportadoras Futuras</h1>
+        <div *ngFor="let t of trasportadorasFutura">
+            <div class="item">
+                <h4><b>Nome Fantasia:</b> {{t.nome_fantasia}}</h4>
+                <h4><b>Razão Social:</b> {{t.razao_social}}</h4>
+                <h4><b>CNPJ:</b> {{t.documento}}</h4>
+                <h4 style="text-align: center;" *ngIf="infoExtra?.operador!=t.sparql"><a style="    color: -webkit-link;
+                    cursor: pointer;
+                    text-decoration: underline;" (click)="getSparql(t.sparql)">Mais Informações</a>
+                </h4>
+                <h4 style="text-align: center;" *ngIf="infoExtra?.operador==t.sparql"><a style="    color: -webkit-link;
+                        cursor: pointer;
+                        text-decoration: underline;" (click)="infoExtra=null">Ocultar</a>
+                </h4>
+                <div *ngIf="infoExtra?.operador==t.sparql">
+                    <h4><b>Site:</b> <a>{{infoExtra.results.bindings[0].wikiPageExternalLink.value}}</a></h4>     
+                    <h4><b>Descrição:</b> {{infoExtra.results.bindings[0].comment.value}}</h4>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
     </div>
 </div>
